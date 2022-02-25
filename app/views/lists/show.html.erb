@@ -1,0 +1,85 @@
+<div class="wrapper">
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcTX9ydPu_WGRcDl7oL-SHuHEMugIS9E4uzx2lZkYOg6JanwQhj7" alt="" width="20" height="40">
+      </a>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item active me-3">
+          <%= link_to 'My Lists', lists_path %>
+        </li>
+      </ul>
+     </div>
+  </div>
+</div>
+
+
+<div class="container text-center mt-4">
+
+  <div class="row">
+    <h1>Here's your list</h1>
+    <h2><%= @list.name %></h2>
+
+    <div class="row my-2">
+    <% @list.movies.each do |movie| %>
+      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" data-aos="zoom-in">
+        <div class="bg-white rounded shadow h-30">
+          <%= image_tag movie.poster_url, alt: movie.title, class: "movie-img rounded-top" %>
+          <div class="p-3 rounded-bottom d-flex flex-column">
+
+          <div class="d-flex">
+            <strong><%= movie.title %></strong>
+            <span class="text-muted font-weight-normal"> <em>rating:</em> <%= movie.rating %> 
+            <i class="fas fa-star star-yellow"></i></span>
+          </div>
+
+            <small class="text-muted"><%= movie.overview %></small>
+            <div class="d-flex align-items-end justify-content-between pt-4">
+              <div>
+                <i class="fas fa-quote-left me-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
+              </div>
+              <%# Add here a delete btn %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  </div>
+
+  <div class="mb-5">
+    <div class="containe">
+      <p><%= link_to 'Add New Movie', 
+                      new_list_bookmark_path(@list), 
+                      class: "btn btn-success mt-3" %>
+        </p>
+    </div>
+
+    <div class="col">
+        <%= link_to 'Edit List', edit_list_path(@list), class:"btn btn-warning mt-3" %>
+        <%= link_to 'Back', lists_path, class:"btn btn-dark mt-3" %>
+        <%= link_to "Remove List", list_path(@list),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" },
+                  notice: 'Restaurant was successfully destroyed.',
+                  class: "btn btn-danger mt-3"
+        %>
+    </div>
+  </div>
+</div>
+  <footer class="mb-3"> Created by &copy Dan Costa </footer>
+</div>

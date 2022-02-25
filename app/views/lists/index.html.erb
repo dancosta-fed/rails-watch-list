@@ -1,0 +1,66 @@
+<div class="wrapper">
+
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand">
+          <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcTX9ydPu_WGRcDl7oL-SHuHEMugIS9E4uzx2lZkYOg6JanwQhj7" alt="" width="20" height="40">
+        </a>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <%= link_to 'Add New', new_list_path %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="banner">
+    <div class="banner-content container">
+    <h1 class="main-title">Make your own Movie List</h1>
+    </div>
+  </div>
+
+  <div class="container py-5">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h3 class="mb-0">My Lists</h3>
+      <%= link_to 'Add New Movie List', new_list_path, class: "btn btn-success mt-3" %>
+    </div>
+
+      <div class="row my-2">
+        <% @lists.each do |list| %>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" data-aos="zoom-in">
+            <div class="bg-white rounded shadow h-30">
+          <%= link_to list_path(list), class: "text-decoration-none" do %>
+            <div class="card-category text-center">
+              <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path("freddy.jpeg") %>)">
+              <%= list.name %>
+              </div>
+            </div>
+          <% end %>
+            </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="mb-3"> Created by &copy Dan Costa </footer>
+
+
+<!-- 
+<div class="card" style= "background-image: black, url(<%#= list.photo.attached? ? cl_image_path(list.photo.key) : asset_path("feature.jpeg") %>)" >
+--> 

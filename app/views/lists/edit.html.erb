@@ -1,0 +1,11 @@
+<div class="container w-75">
+  <h1 class="mt-4 text-center">Edit your Movie List</h1>
+
+  <div class="container w-75">
+    <%= simple_form_for [@list] do |l| %>
+      <%= l.input :name %>
+      <%= l.submit "Update", class: "btn btn-primary" %>
+      <%= link_to 'Back', lists_path, class:"btn btn-dark" %>
+    <% end %>
+  </div>
+</div>

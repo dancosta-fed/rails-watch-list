@@ -36,3 +36,13 @@
 .movie-img {
   margin-top: 2em;
 }
+
+.poster,
+.card-category {
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 3px 2px #fff;
+  }
+}

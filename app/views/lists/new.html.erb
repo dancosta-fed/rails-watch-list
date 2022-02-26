@@ -5,7 +5,7 @@
 
     <div class="container ms-0 w-75">
       <%= simple_form_for [@list] do |l| %>
-        <%= l.input :name, placeholder: 'Thriller'%>
+        <%= l.input :name, placeholder: 'Thriller...'%>
         <%= l.submit "Create", class: "btn btn-primary" %>
         <%= link_to 'Back', lists_path, class:"btn btn-dark" %>
       <% end %>

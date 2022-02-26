@@ -1,31 +1,5 @@
 <div class="wrapper">
 
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <nav class="navbar navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcTX9ydPu_WGRcDl7oL-SHuHEMugIS9E4uzx2lZkYOg6JanwQhj7" alt="" width="20" height="40">
-      </a>
-    </div>
-  </nav>
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="" />
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item active me-3">
-          <%= link_to 'My Lists', lists_path %>
-        </li>
-      </ul>
-     </div>
-  </div>
-</div>
-
-
 <div class="container text-center mt-4">
 
   <div class="row">
@@ -71,8 +45,7 @@
 
   </div>
 
-    <div class="col">
-        <%= link_to 'Edit List', edit_list_path(@list), class:"btn btn-warning mt-3" %>
+    <div class="col mb-4">
         <%= link_to 'Back', lists_path, class:"btn btn-dark mt-3" %>
         <%= link_to "Remove List", list_path(@list),
                   method: :delete,
@@ -83,5 +56,15 @@
     </div>
   </div>
 </div>
-  <footer class="mb-3"> Created by &copy Dan Costa </footer>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://github.com/dancosta-fed"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/_dancosta_/"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/daniel-de-oliveira-costa-590515140/"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Created by &copy Dan Costa
+  </div>
+</div>
 </div>
